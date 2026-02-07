@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Du lịch Việt Nam 3 miền</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+    --main:#006994;
+    --glow:#00eaff;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* ===== BACKGROUND ĐỘNG ===== */
+body{
+    margin:0;
+    font-family:'Segoe UI',Arial,sans-serif;
+    background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+    background-size:400% 400%;
+    animation:bgGradient 12s infinite alternate;
+    color:#222;
+}
+@keyframes bgGradient{
+    0%{background-position:0% 50%}
+    100%{background-position:100% 50%}
+}
+
+/* ===== HEADER ===== */
+header{
+    background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover;
+    color:white;
+    text-align:center;
+    padding:150px 20px;
+    animation:fadeDown 1.2s;
+}
+header h1{
+    font-size:56px;
+    text-shadow:0 0 25px rgba(0,255,255,.6);
+}
+header p{
+    font-size:22px;
+    opacity:.9;
+}
+
+/* ===== NAV ===== */
+nav{
+    position:sticky;
+    top:0;
+    z-index:99;
+    background:rgba(0,105,148,.95);
+    padding:12px;
+    text-align:center;
+    backdrop-filter:blur(8px);
+}
+nav a{
+    color:white;
+    margin:0 14px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+nav a i{margin-right:6px}
+nav a:hover{
+    color:#ffeb3b;
+    text-shadow:0 0 15px yellow;
+}
+
+
+
+/* ===== SECTION ===== */
+section{
+    background:white;
+    margin:30px;
+    padding:28px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    animation:fadeUp .9s;
+    transition:.4s;
+}
+section:hover{
+    transform:translateY(-4px);
+}
+/* ===== TIÊU ĐỀ CẦU VỒNG ===== */
+h2{
+    font-size:34px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+
+    background:linear-gradient(
+        270deg,
+        red,
+        orange,
+        yellow,
+        lime,
+        cyan,
+        blue,
+        violet,
+        red
+    );
+    background-size:400% 400%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    position:relative;
+    display:inline-block;
+    padding-bottom:10px;
+
+    animation:rainbowText 6s linear infinite;
+    transition:.4s;
+}
+
+/* gạch chân cầu vồng phát sáng */
+h2::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:65%;
+    height:4px;
+    border-radius:6px;
+
+    background:linear-gradient(
+        270deg,
+        red,
+        orange,
+        yellow,
+        lime,
+        cyan,
+        blue,
+        violet,
+        red
+    );
+    background-size:400% 400%;
+    animation:rainbowText 4s linear infinite;
+    box-shadow:0 0 20px rgba(255,255,255,.8);
+    transition:.4s;
+}
+
+/* hover */
+h2:hover{
+    transform:translateX(8px) scale(1.05);
+    filter:drop-shadow(0 0 20px white);
+}
+h2:hover::after{
+    width:100%;
+}
+
+/* animation cầu vồng */
+@keyframes rainbowText{
+    0%{background-position:0% 50%}
+    100%{background-position:100% 50%}
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(30px)}
+    to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeDown{
+    from{opacity:0;transform:translateY(-30px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* ===== CARD ===== */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:22px;
+}
+.card{
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+    transition:.5s;
+    background:white;
+}
+.card:hover{
+    transform:translateY(-12px) scale(1.03);
+    box-shadow:0 0 30px var(--glow);
+}
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+.card div{padding:15px}
+
+/* ===== GALLERY ===== */
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+.gallery img{
+    width:230px;
+    height:150px;
+    margin:10px;
+    border-radius:14px;
+    transition:.4s;
+}
+.gallery img:hover{
+    transform:scale(1.15) rotate(2deg);
+    box-shadow:0 0 25px var(--glow);
+}
+
+/* ===== INPUT ===== */
+input,textarea{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:15px;
+}
+button{
+    margin-top:15px;
+    padding:12px 26px;
+    border:none;
+    border-radius:30px;
+    background:var(--main);
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+button:hover{
+    background:#004d6e;
+    transform:scale(1.1);
+    box-shadow:0 0 25px var(--glow);
+}
+
+/* ===== THÔNG BÁO ===== */
+.thongbao{
+    display:none;
+    margin-top:15px;
+    padding:15px;
+    background:#e6f2ff;
+    border-left:6px solid var(--main);
+    animation:fadeUp .6s;
+}
+.thongbao img{
+    max-width:220px;
+    margin-top:10px;
+    border-radius:10px;
+}
+
+/* ===== LIÊN HỆ – GIỮ NGUYÊN (CHÁY) ===== */
+.contact{
+    position:relative;
+    text-align:center;
+    padding:35px;
+    border-radius:28px;
+    color:white;
+    background:#001f2f;
+    animation:heartbeat 1.2s infinite;
+    box-shadow:0 0 40px orange;
+    overflow:hidden;
+}
+@keyframes heartbeat{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.06)}
+}
+.contact::before{
+    content:"";
+    position:absolute;
+    inset:-60px;
+    background:conic-gradient(red,orange,yellow,red);
+    animation:spinFire 3s linear infinite;
+    filter:blur(55px);
+    opacity:.9;
+    z-index:-1;
+}
+@keyframes spinFire{
+    to{transform:rotate(360deg)}
+}
+.contact img{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    border:4px solid orange;
+    animation:pulse 1s infinite;
+}
+contact img{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    border:4px solid orange;
+    object-fit:cover;
+}
+@keyframes pulse{
+    0%{box-shadow:0 0 10px orange}
+    50%{box-shadow:0 0 40px red}
+    100%{box-shadow:0 0 10px orange}
+}
+.contact a{
+    color:#ffeb3b;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+/* ===== TOP BUTTON ===== */
+#topBtn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:var(--main);
+    color:white;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:20px;
+}
+#topBtn:hover{
+    transform:scale(1.2);
+    box-shadow:0 0 35px orange;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:var(--main);
+    color:white;
+    text-align:center;
+    padding:18px;
+}
+
+#musicBtn{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:var(--main);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:22px;
+    box-shadow:0 0 20px cyan;
+    transition:.3s;
+    z-index:999;
+}
+#musicBtn:hover{
+    transform:scale(1.15);
+}
+.title-wrap{
+    display:flex;
+    justify-content:center;
+    margin-bottom:30px;
+}
+
+.rainbow-title{
+    position:relative;
+    padding:18px 55px;
+    font-size:42px;
+    letter-spacing:4px;
+    border-radius:70px;
+    color:white;
+    background:linear-gradient(270deg,
+        red,orange,yellow,lime,cyan,blue,violet,red);
+    background-size:400% 400%;
+    animation:rainbowMove 6s linear infinite, pulse 1.6s infinite;
+    text-shadow:0 0 20px white;
+}
+
+.rainbow-title::before{
+    content:"";
+    position:absolute;
+    inset:-10px;
+    border-radius:80px;
+    background:conic-gradient(
+        red,orange,yellow,lime,cyan,blue,violet,red);
+    z-index:-1;
+    filter:blur(8px);
+    animation:spin 4s linear infinite;
+}
+
+@keyframes rainbowMove{
+    0%{background-position:0% 50%}
+    100%{background-position:100% 50%}
+}
+@keyframes spin{
+    to{transform:rotate(360deg)}
+}
+.tri-an-section{
+    text-align:center;
+    margin:50px 0;
+}
+
+.tri-an-btn{
+    padding:12px 24px;
+    border:none;
+    border-radius:25px;
+    background:linear-gradient(90deg,#ff6a00,#ffd000);
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 15px rgba(255,200,0,.8);
+    transition:.3s;
+}
+.tri-an-btn:hover{
+    transform:scale(1.1);
+}
+
+.tri-an-box{
+    max-height:0;
+    overflow:hidden;
+    margin:20px auto;
+    width:85%;
+    max-width:600px;
+    background:#111;
+    color:white;
+    padding:0 20px;
+    border-radius:15px;
+    box-shadow:0 0 20px gold;
+    transition:max-height .6s ease, padding .4s ease;
+}
+
+.tri-an-box.active{
+    max-height:500px;
+    padding:20px;
+}
+.card img{
+    width:100%;
+    height:140px;          /* tăng chiều cao */
+    object-fit:contain;    /* 👈 KHÔNG cắt */
+    background:#000;       /* nền đen cho gọn */
+}
+#vanhoa .card{
+    background: linear-gradient(
+        135deg,
+        #ff4d4d,
+        #ffa64d,
+        #ffff4d,
+        #4dff88,
+        #4dd2ff,
+        #8c4dff
+    );
+    padding:6px;
+    border-radius:18px;
+}
+
+#vanhoa .card img{
+    background:#111;
+    border-radius:12px 12px 0 0;
+}
+
+#vanhoa .card p{
+    background:#111;
+    margin:0;
+    padding:10px;
+    color:white;
+    font-weight:bold;
+    border-radius:0 0 12px 12px;
+}
+#vanhoa .card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+#vanhoa .card img{
+    max-width:90%;
+    height:140px;
+    object-fit:contain;
+    margin:10px auto;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>DU LỊCH VIỆT NAM</h1>
+<p>Khám phá vẻ đẹp ba miền đất nước</p>
+</header>
+
+<nav>
+<a href="#gioithieu"><i class="fa-solid fa-house"></i>Giới thiệu</a>
+<a href="#bamien"><i class="fa-solid fa-map"></i>Ba miền</a>
+<a href="#amthuc"><i class="fa-solid fa-utensils"></i>Ẩm thực</a>
+<a href="#gallery"><i class="fa-solid fa-camera"></i>Góc ảnh</a>
+<a href="#timkiem"><i class="fa-solid fa-earth-asia"></i>Tìm kiếm địa điểm</a>
+<a href="#lienhe"><i class="fa-solid fa-phone"></i>Liên hệ</a>
+<a href="about.html">
+    <i class="fa-solid fa-users"></i>Về chúng tôi
+</a>
+
+</nav>
+
+<section id="gioithieu">
+<h2>Giới thiệu</h2>
+<p>
+Việt Nam – dải đất hình chữ S không chỉ nổi tiếng bởi cảnh sắc thiên nhiên đa dạng,
+mà còn bởi những giá trị văn hóa, lịch sử và con người đầy nghĩa tình.
+Website này được nhóm chúng em thực hiện như một trang báo tường điện tử,
+vừa để giới thiệu vẻ đẹp đất nước,
+vừa là món quà nhỏ ghi lại dấu ấn tuổi học trò
+trong những năm tháng cuối cùng của thời học sinh.
+</p>
+</section>
+
+<section id="bamien">
+<h2>Du lịch ba miền</h2>
+<div class="cards">
+<div class="card"><img src="https://images.unsplash.com/photo-1528127269322-539801943592"><div>
+<b>Miền Bắc</b><br>
+Nơi lưu giữ những giá trị truyền thống lâu đời,
+trầm lắng như những năm tháng đầu tiên của tuổi học trò.
+</div>
+</div>
+<div class="card"><img src="https://dulich3mien.vn/wp-content/uploads/2022/12/Thap-Nghinh-Phong-10.jpg"><div>
+<b>Miền Trung</b><br>
+Nơi có biển xanh, nắng gió và những con người kiên cường,
+giống như tinh thần vượt khó của tuổi trẻ học trò.
+</div>
+</div>
+<div class="card"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"><div>
+<b>Miền Nam</b><br>
+Năng động, cởi mở và đầy sức sống,
+giống như tinh thần trẻ trung của chúng em trước ngưỡng cửa tương lai.
+</div></div>
+</div>
+</section><section id="vanhoa">
+<h2>🎭 Văn hóa Việt Nam</h2>
+<p>
+Văn hóa Việt Nam là sự hòa quyện giữa truyền thống và hiện đại,
+được thể hiện qua trang phục, lễ hội và các giá trị tinh thần
+được gìn giữ qua nhiều thế hệ.
+</p>
+<div class="card-container">
+    <div class="card">
+        <img src="https://scontent.fdad4-1.fna.fbcdn.net/v/t1.15752-9/624630076_1799796797377137_1213048710807086469_n.jpg?stp=dst-jpg_s2048x2048_tt6&_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeG6fK92VPzrGn6-maKqGeelr5BuVx9ZwjKvkG5XH1nCMnmWx0O7K3CMo3RbVOcYQDVaRIPcUIfmF4ro-cNF6q3K&_nc_ohc=nTJXm_ov38MQ7kNvwEmNq-9&_nc_oc=AdkX-9lq7dI2w9a7Drf2DKKH-AHIg2I9a-hSkl0bhl6743YmfGFlLnBeJ7W_7froDjs&_nc_zt=23&_nc_ht=scontent.fdad4-1.fna&oh=03_Q7cD4gEZsCBRmlwShK0OJgW8MIPN89w2v2mmkxMzJDXD8hb2DQ&oe=69A6BDE1" alt="">
+        <p>Trang phục truyền thống</p>
+    </div>
+
+    <div class="card">
+        <img src="https://media.vov.vn/sites/default/files/styles/large/public/2022-01/img_5219.jpg" alt="">
+        <p>Lễ hội dân gian</p>
+    </div>
+
+    <div class="card">
+        <img src="https://gotrangtri.vn/wp-content/uploads/2018/12/di-san-van-hoa-vat-the.jpg" alt="">
+        <p>Di sản văn hóa</p>
+    </div>
+</div>
+</section>
+</section>
+
+
+<section id="amthuc">
+<h2>Ẩm thực Việt Nam</h2>
+<div class="cards">
+<div class="card"><img src="https://vnn-imgs-f.vgcloud.vn/2021/11/27/15/pho-khoi-30.jpg"><div>Phở</div></div>
+<div class="card"><img src="https://cdn3.ivivu.com/2022/09/bun-bo-hue-ivivu-2.jpg"><div>Bún bò Huế</div></div>
+<div class="card"><img src="https://th.bing.com/th/id/R.333ad4550466cbd9424ba30241560d72?rik=WnVdJUqMDbpUKg&pid=ImgRaw&r=0"><div>Bánh mì</div></div>
+<div class="card"><img src="https://th.bing.com/th/id/R.2c8834984a91d28854723a0ddec7fa08?rik=mt9XAp7kluc29A&riu=http%3a%2f%2fphuyentourism.gov.vn%2fwp-content%2fuploads%2f2020%2f12%2f100b247b7c3b9565cc2a.jpg&ehk=UfaDpOCT9ChVgLFATJyWqlPHLWUeSzodn%2fcHuV5%2bNMg%3d&risl=&pid=ImgRaw&r=0"><div>Mắt cá ngừ đại dương</div></div>
+<div class="card"><img src="https://th.bing.com/th/id/R.d8d395b92c21e73364e46515aec9c4cd?rik=HQg4XeNXjTKAig&pid=ImgRaw&r=0"><div>Nem chua thanh hoá</div></div>
+<div class="card"><img src="https://tse2.mm.bing.net/th/id/OIP.Cq7_UXQd80U-jlrerHmJ2gHaFW?rs=1&pid=ImgDetMain&o=7&rm=3"><div>Chả ram</div></div>
+<div class="card"><img src="https://img6.thuthuatphanmem.vn/uploads/2022/11/17/anh-bat-chao-long-dep_052629555.jpg"><div>Cháo lòng</div></div>
+<div class="card"><img src="https://cdn.tgdd.vn/Files/2017/03/18/962192/cach-nau-hu-tieu-tai-nha-7_800x536.jpg"><div>Hủ tiếu</div></div>
+<div class="card"><img src="https://bing.com/th?id=OSK.60d46edc2bdc569f7762122061b9ff85"><div>Gà chiên mắm</div></div>
+<div class="card"><img src="https://www.tastingtable.com/img/gallery/bnh-xo-the-delectable-vietnamese-crepes-you-should-know/l-intro-1666117324.jpg"><div>Bánh xèo</div></div>
+<div class="card"><img src="https://toplist.vn/images/800px/com-tam-507259.jpg"><div>Cơm tắm</div></div>
+<div class="card"><img src="https://toplist.vn/images/800px/banh-chungbanh-tet-274171.jpg"><div>Bánh chưng</div></div>
+</div>
+</section>
+
+<section id="gallery">
+<h2>Góc ảnh</h2>
+<div class="gallery">
+<img src="https://th.bing.com/th/id/R.bf4e198b38424870d7281cddefc1b6b5?rik=%2bBh%2fCK4dwAuhsg&pid=ImgRaw&r=0">
+<img src="https://bcp.cdnchinhphu.vn/Uploaded/dangdinhnam/2016_08_14/hinh-anh-tuong-lai-nao-cho-nganh-du-lich-tinh-quang-ninh-1.jpg">
+<img src="https://media.vov.vn/sites/default/files/styles/large/public/2020-09/99-thuyen_hoa.jpg">
+<img src="https://media.vneconomy.vn/w800/images/upload/2022/09/05/rice-field-terrace-vietnam-shutterstock-554460046-d71ff868b1.jpeg">
+<img src="https://toquoc.mediacdn.vn/Uploaded/gamhh/2017_11_06/10_GGIZ.jpg">
+<img src="https://www.sunlife.com.vn/content/dam/sunlife/regional/vietnam/images/du-lich-viet-nam-2020-1.jpg">
+<img src="https://www.vnbuyerguide.com/img_data/images/756083584333-screenshot-20230117-170955-photos-8611[1].jpg">
+
+</div>
+</section>
+
+<section id="timkiem">
+<h2>🔍 Tìm kiếm địa điểm</h2>
+<input id="place" placeholder="Ví dụ: Đà Nẵng">
+<button onclick="tim()">Mở Google Earth</button>
+<div id="tb" class="thongbao">🚀 Đang mở Google Earth 3D cho bạn...</div>
+</section>
+
+<section id="lienhe">
+
+<div class="title-wrap">
+    <div class="rainbow-title">LIÊN HỆ</div>
+</div>
+
+<div class="contact">
+    <img src="https://scontent.fdad4-1.fna.fbcdn.net/v/t39.30808-6/626816153_1196259989352836_4093401472514707422_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGxZ8Tp5FnCIJPiUxtTdJMHDwnqgUDFD8EPCeqBQMUPwQQEYvCl-WR2lVC8BQYzPQ4I9QNOnahIBqxOyD77nM1g&_nc_ohc=B77REaDuGgYQ7kNvwExVAqm&_nc_oc=Adn29o76U97oWEjPNARP7BO_CGz7Do1aVvyQ3nUH-EaWIDch71gJZ9k0RdbaAUi_nBc&_nc_zt=23&_nc_ht=scontent.fdad4-1.fna&_nc_gid=uNR-VDB0nEdxvwSCr7eAnw&oh=00_AfsYQdYTzu9_p_c83CP5sBFtRh04_St-8tUT4J4h2HsO0Q&oe=69853529"alt="Admin">
+    <p><b>Nhóm:</b> Cầu Vồng Khuyết – 12C3</p>
+    <p>
+        <b>Admin:</b>
+        <a href="https://www.facebook.com/Namdiepvien00biet" target="_blank">
+         Thành Nam
+        </a>
+    </p>
+	<p>
+	    <b>Email:</b>
+         <a href="https://mail.google.com/mail/u/0/?hl=en" target="_blank">
+         NhómCầuVòngKhuyết@.gmail.com
+	    </a>
+	</p>
+</div>
+
+</section>
+
+
+<section id="binhluan">
+<h2>💬 Bình luận</h2>
+<textarea id="comment" rows="4" placeholder="Nhập góp ý của bạn..."></textarea>
+<button onclick="guiBinhLuan()">Gửi bình luận</button>
+<div id="tbComment" class="thongbao">
+💚 Cảm ơn góp ý của bạn chúng tôi có thể sẽ lắng nghe!!!
+<img src="https://scontent.fdad4-1.fna.fbcdn.net/v/t1.15752-9/623763403_4383836128566515_594773121224614419_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeF53-_9dy8js3hzw_OegqZfYDKl5AptVbRgMqXkCm1VtJngXtRNKVfpLyK7riow-7dGR3G7Nh0CUyGdXzYFb5dl&_nc_ohc=ZMRVnOBN4EAQ7kNvwEZ9QtQ&_nc_oc=AdnFATeuvyj9gcOJPHSqfHnYkFuyQwPLVdJ0J_6YR3VRAEgPG-rKOYw5L7OYRoV0zGY&_nc_zt=23&_nc_ht=scontent.fdad4-1.fna&oh=03_Q7cD4gGJxBxr1wb7-IoZmL2e10ZxF_xupzKKhT8VS7TnJlu3Bg&oe=69A6D702">
+</div>
+</section>
+
+
+
+<footer>
+@2026 Báo Tường Điện Tử Du Lịch Việt Nam | Bản quyền: Cầu Vòng Khuyết
+</footer>
+<!-- NÚT NHẠC -->
+<div id="musicBtn" onclick="toggleMusic()">🔊</div>
+
+<audio id="bgMusic" loop>
+    <source src="Xa Anh Mi Ban Chiu _ Teen Vng C Lofi TikTok - Umie x CaoTri x meChill.mp3" type="audio/mpeg">
+</audio>
+
+<div id="topBtn" onclick="window.scrollTo(0,0)">↑</div>
+<section class="tri-an-section">
+    <button class="tri-an-btn" onclick="toggleThanks()">
+        💌 Lời tri ân
+    </button>
+
+    <div class="tri-an-box" id="triAn">
+        <p>
+        Ba năm học dưới mái trường thân yêu là quãng thời gian
+        chứa đựng biết bao kỷ niệm đẹp.
+        Chúng em xin gửi lời tri ân chân thành đến quý thầy cô
+        đã luôn tận tâm dạy dỗ, truyền đạt tri thức
+        và đồng hành cùng chúng em trong suốt chặng đường học tập.
+        Những bài học hôm nay sẽ là hành trang quý giá cho mai sau.
+        </p>
+    </div>
+</section>
+
+
+<script>
+function tim(){
+    let p=document.getElementById("place").value;
+    if(p===""){alert("Vui lòng nhập địa điểm");return;}
+    document.getElementById("tb").style.display="block";
+    window.open("https://earth.google.com/web/search/"+p,"_blank");
+}
+
+function guiBinhLuan(){
+    let c=document.getElementById("comment").value;
+    if(c===""){alert("Bạn chưa nhập bình luận");return;}
+    document.getElementById("tbComment").style.display="block";
+    document.getElementById("comment").value="";
+}
+
+window.onscroll=function(){
+    document.getElementById("topBtn").style.display=
+        window.scrollY>300?"flex":"none";
+}
+
+let playing=false;
+let music=document.getElementById("bgMusic");
+
+function toggleMusic(){
+    if(!playing){
+        music.volume=0.4;
+        music.play();
+        document.getElementById("musicBtn").innerHTML="🔈";
+        playing=true;
+    }else{
+        music.pause();
+        document.getElementById("musicBtn").innerHTML="🔊";
+        playing=false;
+    }
+}
+
+function toggleThanks(){
+    document.getElementById("triAn").classList.toggle("active");
+}
+
+
+
+</script>
+
+</body>
+</html>

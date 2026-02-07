@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Về chúng tôi</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{box-sizing:border-box}
+body{
+    margin:0;
+    font-family:'Segoe UI',Arial,sans-serif;
+    background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+    color:white;
+}
+
+/* ===== HEADER ===== */
+header{
+    text-align:center;
+    padding:70px 20px;
+    background:linear-gradient(90deg,#00c6ff,#0072ff);
+}
+header h1{font-size:42px;margin:0}
+header p{font-size:18px;opacity:.9;margin-top:10px}
+
+/* ===== SECTION ===== */
+section{padding:60px 6%}
+
+/* ===== TEAM GRID (HIỆN ĐỦ THÀNH VIÊN) ===== */
+.team{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+/* ===== MEMBER CARD ===== */
+.member{
+    position:relative;
+    background:radial-gradient(circle at top,#111,#000);
+    border-radius:22px;
+    padding:25px 15px 45px;
+    text-align:center;
+    cursor:pointer;
+    transition:.4s;
+    box-shadow:0 0 22px rgba(0,255,255,.45);
+    border:2px solid rgba(0,255,255,.4);
+}
+.member:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 40px cyan;
+    border-color:cyan;
+}
+.member.active{
+    transform:scale(1.06);
+    box-shadow:0 0 55px cyan;
+}
+
+.member::before{
+    content:"";
+    position:absolute;
+    inset:-3px;
+    border-radius:26px;
+    background:linear-gradient(120deg,cyan,#7f00ff,cyan);
+    filter:blur(18px);
+    opacity:.55;
+    z-index:-1;
+}
+
+.member img{
+    width:115px;
+    height:115px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid cyan;
+    margin-bottom:12px;
+}
+
+.member h3{
+    margin:6px 0 4px;
+    font-size:18px;
+}
+.member p{
+    margin:0;
+    font-size:14px;
+    opacity:.85;
+}
+
+/* ===== ICON FB ===== */
+.member .fb{
+    position:absolute;
+    bottom:12px;
+    right:12px;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#1877f2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:18px;
+    opacity:0;
+    transform:scale(.7);
+    transition:.3s;
+}
+.member:hover .fb{
+    opacity:1;
+    transform:scale(1);
+}
+
+/* ===== GALLERY ===== */
+.gallery{
+    margin-top:80px;
+    padding:60px 6%;
+    border-radius:35px;
+    text-align:center;
+    background:linear-gradient(
+        270deg,
+        #00c6ff,
+        #0072ff,
+        #7f00ff,
+        #ff4ecd,
+        #00c6ff
+    );
+    background-size:600% 600%;
+    animation:gradientMove 10s ease infinite;
+}
+@keyframes gradientMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.photos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+.photos img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:22px;
+    cursor:pointer;
+    transition:.4s;
+    box-shadow:0 0 25px rgba(0,255,255,.5);
+}
+.photos img:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 45px cyan;
+}
+
+/* ===== BACK ===== */
+.back{
+    text-align:center;
+    margin:60px 0;
+}
+.back a{
+    color:#ffeb3b;
+    font-weight:bold;
+    text-decoration:none;
+    font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>💙 VỀ CHÚNG TÔI</h1>
+<p>Nhóm Cầu Vồng Khuyết – 12C3</p>
+</header>
+
+<section>
+<h2>⭐ Thành viên nhóm</h2>
+
+<div class="team">
+
+<div class="member">
+    <img src="https://scontent.fdad4-1.fna.fbcdn.net/v/t39.30808-6/627536323_1200059122306256_3415212190406084617_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=8xGNYeivj8UQ7kNvwFLOlWB&_nc_oc=AdmIrUAFBbuuqg3L4aEsWvIsj4JZ6iqwqMlsSMtMg4fVo2cO7ihctLCnvXEYcPSwj5M&_nc_zt=23&_nc_ht=scontent.fdad4-1.fna&_nc_gid=hzZC_Fa1grSsivoOZkqcGg&oh=00_Aft1XflQQ_9uLrWbA0eLIPhRAS6GpHjzLa4xrqkn7_19vg&oe=698B483B">
+    <h3>Việt Trường</h3>
+    <p>Soạn nội dung</p>
+    <a class="fb" href="https://www.facebook.com/viet.truong.588085" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+</div>
+
+<div class="member">
+    <img src="https://scontent.fdad4-1.fna.fbcdn.net/v/t39.30808-6/628035214_1199590322353136_5408787112378564798_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=17ELzC-gyBoQ7kNvwGWK-GV&_nc_oc=AdnbX-FBE-gBJr12zEdj8buK82N62KpJeo5CJznC2aNxmpc75oabxSM8l7o8gQWtGmI&_nc_zt=23&_nc_ht=scontent.fdad4-1.fna&_nc_gid=f3eFCR1hQbkKV9puYS2w9g&oh=00_AftFIQjUXlcqiDpAQdB4SGE9ez3GKGGuJ9xHj0i37_zS8Q&oe=698B4FD9">
+    <h3>Tâm Như</h3>
+    <p>Làm Slide</p>
+	 <a class="fb" href="https://www.facebook.com/tam.nhu.783315" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+</div>
+	 
+	
+
+<div class="member">
+    <img src="https://scontent.fdad4-1.fna.fbcdn.net/v/t39.30808-6/625900470_1199590165686485_3477985057676072241_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=_i7Y-FzJL68Q7kNvwFSAupm&_nc_oc=AdmvaH4TkTAqlJiWEAu1WkCIoSFpXeI6u3BB6MpbYkMwNgXpsUe1jYPBRpFuA69jhM0&_nc_zt=23&_nc_ht=scontent.fdad4-1.fna&_nc_gid=g6_SJuKakXXMGp1JXkvJEQ&oh=00_Aftwhz6MZpMiR1lCLYxtSiXz91hI0dGF8KxYNFb1YlT4lQ&oe=698B537D">
+    <h3>Thành Nam</h3>
+    <p>Viết Code</p>
+	 <a class="fb" href="https://www.facebook.com/Namdiepvien00biet" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+</div>
+
+<div class="member">
+    <img src="https://scontent.fdad4-1.fna.fbcdn.net/v/t39.30808-6/627112403_1199590375686464_4117283269306599863_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_ohc=WUrhkYDfGcgQ7kNvwG7FSYA&_nc_oc=AdmTk2w2s8nKGbrcUAKUd_TmagZcFhmrFAihetilGxnV0D5s2H8GC7HcuHftRMgP9Xs&_nc_zt=23&_nc_ht=scontent.fdad4-1.fna&_nc_gid=l6a9KI2B3pMpT5TZ5rVyLQ&oh=00_AfsyK5TBlfU0Vq8Z1YhwPbI1T2J2Cjf4YJbKPeNQbp9Kxg&oe=698B4C38">
+    <h3>Diệu Hoàng</h3>
+    <p>Làm Slide</p>
+	 <a class="fb" href="https://www.facebook.com/profile.php?id=61576977908315" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+</div>
+
+<div class="member">
+    <img src="https://scontent.fdad4-1.fna.fbcdn.net/v/t39.30808-6/628461440_1200061845639317_1104331985876522225_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=whZv3wLfW3AQ7kNvwFX_cW4&_nc_oc=AdnhOjA1l-ggE7T94JRlCJi068K_SZFw0O7dHs367v0VM_luvTn-T0Xw_IkPf5vY2i0&_nc_zt=23&_nc_ht=scontent.fdad4-1.fna&_nc_gid=QtYd3EKz0_GhRDhafAbcMA&oh=00_AfvvUmpeZJmO806j1TokBuRkDaMD65BJcdhDKlU_yxzI2w&oe=698B2C48">
+    <h3>Đắc Di</h3>
+    <p>Thuyết trình</p>
+	 <a class="fb" href="https://www.facebook.com/ho.ac.di.259001" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+</div>
+
+</div>
+</section>
+
+<section class="gallery">
+<h2>📸 Khoảnh khắc của chúng tôi</h2>
+
+<div class="photos">
+    <img src ="https://scontent.fdad4-1.fna.fbcdn.net/v/t1.15752-9/613181876_1206545418340729_296831510624702272_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=9f807c&_nc_ohc=y8nDgWLk7IYQ7kNvwH8zqB0&_nc_oc=AdlFVc0Y9YAT45zObLj05xOeTOB9EHgMn4A6xe5iA-XjYyOGhxsncut7CGK-tDxoSl0&_nc_zt=23&_nc_ht=scontent.fdad4-1.fna&oh=03_Q7cD4gE2Fila8aMjoMB-vD8JpVKDQ_3xqyX0hLWv04brZ2N_hg&oe=69AD541A">
+	<img src ="https://scontent.fdad4-1.fna.fbcdn.net/v/t1.15752-9/626002449_870840862243525_6740524378363635709_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=9f807c&_nc_ohc=kKoLsZMG1EUQ7kNvwEao9iw&_nc_oc=AdnQk_DsquNQKcZr5WohV1oNm3x0jqJLqIiXvSjoNl0PgNeN7QNKDBIDa4SZpwtf2aU&_nc_zt=23&_nc_ht=scontent.fdad4-1.fna&oh=03_Q7cD4gFzh6wBD2wq0G4MMcsvhdobtC7XQzzMAHKb52lnbgXMjQ&oe=69AD7283">
+	<img src ="https://scontent.fdad4-1.fna.fbcdn.net/v/t1.15752-9/624517470_1424612175776193_8030322315674348352_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=9f807c&_nc_ohc=8kwquxXahGoQ7kNvwH0ACRl&_nc_oc=Adnfr--hBjHp6MtJzB9GBRT-Jj-wIhyTNhk0huqL1IbSdI7Pm7YHQPHSn2q5MdAlPE4&_nc_zt=23&_nc_ht=scontent.fdad4-1.fna&oh=03_Q7cD4gEjyPIIPL4VB-c9k0kZ1h7OU04vl_87joIZlNiXeMaiBg&oe=69AD76CA">
+</div>
+</section>
+
+<div class="back">
+<a href="index.html">← Quay lại trang chính</a>
+</div>
+
+<script>
+document.querySelectorAll('.member').forEach(card=>{
+    card.addEventListener('click',()=>{
+        card.classList.toggle('active');
+    });
+});
+</script>
+
+</body>
+</html>
